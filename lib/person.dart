@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Person extends StatefulWidget {
    Person({super.key,required this.name}); 
 
-  String name='adil jaz';
+  String name='adil';
 
   @override
   State<Person> createState() => _PersonState();
