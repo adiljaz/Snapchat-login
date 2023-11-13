@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Person extends StatefulWidget {
-   Person({super.key,required this.name});
+   Person({super.key,required this.name}); 
 
   String name='adil';
 
