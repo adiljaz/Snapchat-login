@@ -51,17 +51,15 @@ class _SplashScrenState extends State<SplashScren> {
         
       ),
 
-      bottomSheet: Container(
-        child: Padding(padding: EdgeInsets.all(16 ),
-        child: Row(
+      bottomSheet: const Padding(padding: EdgeInsets.all(16 ),
+      child: Row(
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(' SnapChat  ',style: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold,fontSize: 20 ),),
-            
-          ],
-        ),),
-      ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(' SnapChat  ',style: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold,fontSize: 20 ),),
+          
+        ],
+      ),),
 
 
       
@@ -72,25 +70,27 @@ class _SplashScrenState extends State<SplashScren> {
 
   Future<void>gotoLOgin() async{
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
 
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginScreen()));
+    // ignore: use_build_context_synchronously
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const LoginScreen()));
 
   }
 
 
 Future<void> checkuserlogdin()async{
 
-  final _sharedpref= await SharedPreferences.getInstance();
-   final _login= _sharedpref.getBool(save_key_name);
+  final sharedpref= await SharedPreferences.getInstance();
+   final login= sharedpref.getBool(save_key_name);
 
-   if(_login==null||_login==false){
+   if(login==null||login==false){
 
     gotoLOgin();
    }else{
 
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeScreen()));
+    // ignore: use_build_context_synchronously
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const HomeScreen()));
 
    }
 

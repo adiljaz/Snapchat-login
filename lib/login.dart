@@ -19,62 +19,60 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(100))),
-                      hintText: 'username '),
-                  controller: _usernamecontroller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'please enter  your username';
-                    } else {
-                      return null;
-                    }
-                  },
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                    hintText: 'username '),
+                controller: _usernamecontroller,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'please enter  your username';
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                    hintText: 'password '),
+                    obscureText: true,
+                controller: _passwordcontrroller,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'please enter your password';
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100)),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(100))),
-                      hintText: 'password '),
-                      obscureText: true,
-                  controller: _passwordcontrroller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'please enter your password';
-                    } else {
-                      return null;
-                    }
-                  },
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100)),
-                  ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      checklodin();
-                    } else {
-                      print('item not found');
-                    }
-                  },
-                  child: Icon(Icons.login),
-                ),
-              ],
-            ),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    checklodin();
+                  } else {
+                    print('item not found');
+                  }
+                },
+                child: const Icon(Icons.login),
+              ),
+            ],
           ),
         ),
       ),
@@ -82,19 +80,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void checklodin() async {
-    final _username = _usernamecontroller.text;
+    final username = _usernamecontroller.text;
     final _password = _passwordcontrroller.text;
 
-    if (_username == 'adil' && _password == '1234') {
-      final _sharedpref = await SharedPreferences.getInstance();
+    if (username == 'adil' && _password == '1234') {
+      final sharedpref = await SharedPreferences.getInstance();
 
-      _sharedpref.setBool(save_key_name, true);
+      sharedpref.setBool(save_key_name, true);
 
+      // ignore: use_build_context_synchronously
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => HomeScreen()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("username password doesn't match "),
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.all(10),

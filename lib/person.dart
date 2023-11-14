@@ -20,7 +20,7 @@ class _PersonState extends State<Person> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('adil jaz'),),
+        title: const Center(child: Text('adil jaz'),),
       ),
 
       body:Column(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:freeeeee/splash.dart';
 
-final save_key_name='user logidin';
+// ignore: constant_identifier_names
+const save_key_name='user logidin';
 
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title:'snapcht',
       theme: ThemeData(primarySwatch: Colors.amber),
-      home:SplashScren() ,
+      home:const SplashScren() ,
       
     );
   }

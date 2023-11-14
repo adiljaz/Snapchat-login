@@ -10,8 +10,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.snapchat),
-        title: Center(
+        leading: const Icon(Icons.snapchat),
+        title: const Center(
           child: Text('SnapChat '),
         ),
         actions: [
@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Logout(context);
             },
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),
@@ -31,11 +31,11 @@ class HomeScreen extends StatelessWidget {
                 },
 
               child: ListTile(
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   backgroundImage: AssetImage('images/adiljaz.jpg'),
                 ),
-                title: Text('adil jaz '),
-                subtitle: Text('messages 99+'),
+                title: const Text('adil jaz '),
+                subtitle: const Text('messages 99+'),
                 trailing: Text("11:$index"),
               ),
             );
@@ -50,8 +50,8 @@ class HomeScreen extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Lougout...!'),
-            content: Text('Are you sure..?'),
+            title: const Text('Lougout...!'),
+            content: const Text('Are you sure..?'),
             actions: [
               TextButton(onPressed: () async {
 
@@ -59,11 +59,12 @@ class HomeScreen extends StatelessWidget {
                  await _sharedpref.clear();
                 
 
+                  // ignore: use_build_context_synchronously
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (conext){
-                    return LoginScreen();
+                    return const LoginScreen();
                   }), (route) => false);
 
-              }, child: Text('yes')),
+              }, child: const Text('yes')),
               TextButton(onPressed: ()  {
                 
 
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
 
 
                 Navigator.pop(context);
-              }, child: Text('no')),
+              }, child: const Text('no')),
             ],
           );
         });
