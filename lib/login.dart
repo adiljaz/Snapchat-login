@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
+                  style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100)),
                 ),
