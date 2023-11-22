@@ -39,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   }
                 },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
                 const SizedBox(
                 height: 10,
@@ -57,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   }
                 },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
