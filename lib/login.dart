@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   }
                 },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+                
               ),
                 const SizedBox(
                 height: 10,
