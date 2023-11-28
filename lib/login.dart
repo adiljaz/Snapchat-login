@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 
               ),
                 const SizedBox(
-                height: 10,
+                height: 12,
               ),
               TextFormField(
                 decoration: const InputDecoration(
